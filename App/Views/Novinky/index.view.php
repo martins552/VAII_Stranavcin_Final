@@ -14,7 +14,7 @@ $layout = 'zaklad';
     </div>
     <div class="card-footer text-body-secondary"><?= $post->getDatum()?></div>
 
-    <?php if($auth->isLogged()): ?>
+    <?php if($auth->isLogged() && $auth->getLoggedUserId() == $post->getUser()): ?>
     <a class="btn btn-primary mb-2" href="<?=$link->url('novinky.upravit', ['id' => $post->getId()])?>">Upraviť</a>
     <a class="btn btn-danger" href="<?=$link->url('novinky.zmazat', ['id' => $post->getId()])?>">Zmazať</a>
     <?php endif; ?>

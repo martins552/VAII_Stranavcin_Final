@@ -13,7 +13,7 @@ CREATE TABLE `users`
     `password` text NOT NULL,
     `email`    text DEFAULT NULL,
     `birthdate` date NOT NULL,
-    `obrazok` varchar(300) DEFAULT 'public/images/default_avatar.jpg',
+    `obrazok` varchar(300) NOT NULL,
     `permission` int(11) DEFAULT NULL,
     PRIMARY KEY (`id`),
     FOREIGN KEY (`permission`) references permissions(`id`) ON DELETE CASCADE

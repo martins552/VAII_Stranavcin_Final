@@ -67,6 +67,8 @@ class NovinkyController extends AControllerBase
             $novinka->setText($this->request()->getValue('text'));
             $novinka->setDatum($this->request()->getValue('datum'));
             $novinka->setObrazok($this->request()->getFiles()['obrazok']['name']);
+            $userId = $this->app->getAuth()->getLoggedUserId();
+            $novinka->setUser($userId);
 
             $errors = $this->errors();
             if (count($errors) > 0) {
