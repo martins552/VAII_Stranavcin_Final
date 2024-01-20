@@ -34,6 +34,10 @@ class DummyAuthenticator implements IAuthenticator
     public function login($login, $password): bool
     {
         $pozivatelia = User::getAll('username = ?', [$login]);
+        if ($pozivatelia == null)
+        {
+            return false;
+        }
         $pozivatel = $pozivatelia[0];
         $pouzivatelHeslo = $pozivatel->getPassword();
         if ($password == password_verify($password, $pouzivatelHeslo))

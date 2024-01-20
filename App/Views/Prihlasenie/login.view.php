@@ -7,10 +7,9 @@
 <div class="container">
 <main class="form-signin w-50 m-auto">
         <div class="d-grid gap-2">
-            <div class="text-center text-danger mb-3">
-                <?= @$data['message'] ?>
+            <div class="row text-center text-danger">
+                <i><?= @$data['message'] ?></i>
             </div>
-
             <form class="form-signin" method="post" action="<?= $link->url("prihlasenie.login") ?>">
                 <div class="form-floating">
                     <input type="text" class="form-control" id="login" placeholder="Meno" name="login" required>
