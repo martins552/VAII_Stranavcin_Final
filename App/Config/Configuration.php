@@ -29,11 +29,11 @@ class Configuration
     /**
      * URL where main page logging is. If action needs login, user will be redirected to this url
      */
-    public const LOGIN_URL = '?c=auth&a=login';
+    public const LOGIN_URL = '?c=prihlasenie&a=login';
     /**
      * Prefix of default view in App/Views dir. <ROOT_LAYOUT>.layout.view.php
      */
-    public const ROOT_LAYOUT = 'root';
+    public const ROOT_LAYOUT = 'zaklad';
     /**
      * Add all SQL queries after app output
      */
