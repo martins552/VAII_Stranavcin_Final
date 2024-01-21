@@ -19,6 +19,12 @@ $layout = 'zaklad';
                 <hr>
                 <h6 class="card-text"><?= User::getOne($komentar->getUser())->getUsername() ?></h6>
                 <p class="card-text"><?= $komentar->getText() ?></p>
+                <?php if ($this->app->getAuth()->isLogged()) : ?>
+                    <?php if ($komentar->getUser() == $this->app->getAuth()->getLoggedUserId()) : ?>
+                        <a href="<?=$link->url('komentar.upravit', ['idKoment' => $komentar->getId(), 'idPost' => $post->getId()]) ?>">Upraviť</a>
+                        <a href="<?=$link->url('komentar.zmazat', ['id' => $komentar->getId()]) ?>">Zmazať</a>
+                    <?php endif; ?>
+                <?php endif; ?>
             <?php endif; ?>
         <?php endforeach; ?>
 

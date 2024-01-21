@@ -14,7 +14,7 @@ class NovinkyController extends AControllerBase
 {
     public function index() : Response
     {
-            $novinky = Post::getAll();
+        $novinky = Post::getAll();
         $komentare = Comment::getAll();
         return $this->html([
             'novinky' => $novinky,
