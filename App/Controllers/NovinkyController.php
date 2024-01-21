@@ -7,15 +7,18 @@ use App\Core\HTTPException;
 use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
 use App\Helpers\FileStorage;
+use App\Models\Comment;
 use App\Models\Post;
 
 class NovinkyController extends AControllerBase
 {
     public function index() : Response
     {
-        $novinky = Post::getAll();
+            $novinky = Post::getAll();
+        $komentare = Comment::getAll();
         return $this->html([
-            'novinky' => $novinky
+            'novinky' => $novinky,
+            'komentare' => $komentare
         ]);
     }
 
@@ -48,7 +51,7 @@ class NovinkyController extends AControllerBase
             throw new HTTPException(404);
         }
         return $this->html([
-            'novinky' => $novinka
+            'novinka' => $novinka
         ]);
     }
 

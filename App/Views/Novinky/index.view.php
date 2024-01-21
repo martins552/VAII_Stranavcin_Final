@@ -1,4 +1,7 @@
 <?php
+
+use App\Models\User;
+
 $layout = 'zaklad';
 ?>
 
@@ -11,12 +14,24 @@ $layout = 'zaklad';
         <h5 class="card-title"><?= $post->getNazov()?></h5>
         <h6 class="card-subtitle mb-2 text-body-secondary"><?= $post->getMiesto()?></h6>
         <p class="card-text"><?= $post->getText()?></p>
+        <?php foreach ($data['komentare'] as $komentar): ?>
+            <?php if ($komentar->getPost() == $post->getId()): ?>
+                <hr>
+                <h6 class="card-text"><?= User::getOne($komentar->getUser())->getUsername() ?></h6>
+                <p class="card-text"><?= $komentar->getText() ?></p>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
     </div>
     <div class="card-footer text-body-secondary"><?= $post->getDatum()?></div>
 
+
+    <?php if ($auth->isLogged()): ?>
+        <a class="btn btn-primary mb-2" href="<?=$link->url('komentar.index', ['id' => $post->getId()])?>">Pridať komentár</a>
+    <?php endif; ?>
     <?php if($auth->isLogged() && $auth->getLoggedUserId() == $post->getUser()): ?>
-    <a class="btn btn-primary mb-2" href="<?=$link->url('novinky.upravit', ['id' => $post->getId()])?>">Upraviť</a>
-    <a class="btn btn-danger" href="<?=$link->url('novinky.zmazat', ['id' => $post->getId()])?>">Zmazať</a>
+        <a class="btn btn-primary mb-2" href="<?=$link->url('novinky.upravit', ['id' => $post->getId()])?>">Upraviť</a>
+        <a class="btn btn-danger mb-2" href="<?=$link->url('novinky.zmazat', ['id' => $post->getId()])?>">Zmazať</a>
     <?php endif; ?>
 </div>
 <?php endforeach; ?>

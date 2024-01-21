@@ -58,6 +58,11 @@
             <?php if ($auth->isLogged()): ?>
                 <ul class="navbar-nav nav-pills justify-content-end text-center">
                     <li class="nav-item">
+                        <a class="nav-link active" href="<?=$link->url('profil.index')?>">Profil</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav nav-pills justify-content-end text-center">
+                    <li class="nav-item">
                         <a class="nav-link active" href="<?=$link->url('prihlasenie.logout')?>">Odhlásiť sa</a>
                     </li>
                 </ul>

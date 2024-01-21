@@ -11,7 +11,7 @@ $layout = 'zaklad';
 
 <form method="post" action="<?= $link->url('novinky.ulozit') ?>" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?= @$data['novinka']?->getId() ?>">
-    <h1 class="hlavnyNadpis">Príspevok</h1>
+    <h1 class="hlavnyNadpis">Upraviť príspevok</h1>
     <hr>
     <main class="form-signin w-50 m-auto">
         <form>
@@ -25,16 +25,16 @@ $layout = 'zaklad';
                     <label for="floatingPassword">Miesto konania</label>
                 </div>
                 <div class="form-floating">
-                    <input type="text" class="form-control" name="datum" placeholder="" value="<?= @$data['novinka']?->getDatum() ?>" required>
+                    <input type="date" class="form-control" name="datum" placeholder="" value="<?= @$data['novinka']?->getDatum() ?>" required>
                     <label for="floatingPassword">Dátum konania</label>
                 </div>
                 <div class="form-floating">
-                    <input type="file" class="form-control" name="obrazok" placeholder="" value="<?= @$data['novinka']?->getObrazok() ?>" required>
+                <input type="file" class="form-control" name="obrazok" placeholder="" value="<?= substr($data['novinka']->getObrazok(), strpos($data['novinka']->getObrazok(), '-') + 1)  ?>" required>
                     <label for="floatingPassword">Obrázok</label>
                 </div>
                 <div class="form-group">
                     <label for="text">Text</label>
-                    <textarea class="form-control" name="text" rows="5"><?= @$data['novinka']?->getText() ?></textarea>
+                    <textarea class="form-control" name="text" rows="5" required><?= @$data['novinka']?->getText() ?></textarea>
                 </div>
                 <button class="btn btn-primary w-100 py-2" type="submit">Odoslať</button>
             </div>

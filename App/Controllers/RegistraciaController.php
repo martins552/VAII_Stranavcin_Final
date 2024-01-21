@@ -47,7 +47,8 @@ class RegistraciaController extends AControllerBase
             $obrazok = FileStorage::saveFile($this->request()->getFiles()['picture']);
             $pouzivatel->setObrazok($obrazok);
             $pouzivatel->save();
-            return new RedirectResponse($this->url("uvod.index"));
+            $this->app->getAuth()->login($this->request()->getValue('username'), $this->request()->getValue('password'));
+            return new RedirectResponse($this->url("profil.index"));
         }
     }
 

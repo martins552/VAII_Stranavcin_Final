@@ -17,24 +17,24 @@ $layout = 'zaklad';
     <form>
         <div class="d-grid gap-2">
             <div class="form-floating">
-                <input type="text" class="form-control" name="nazov" placeholder="" value="<?= @$data['novinka']?->getNazov() ?>" required>
+                <input type="text" class="form-control" name="nazov" placeholder="" value="" required>
                 <label for="floatingInput">Názov príspevku</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" name="miesto" placeholder="" value="<?= @$data['novinka']?->getMiesto() ?>" required>
+                <input type="text" class="form-control" name="miesto" placeholder="" value="" required>
                 <label for="floatingPassword">Miesto konania</label>
             </div>
             <div class="form-floating">
-                <input type="date" class="form-control" name="datum" placeholder="" value="<?= @$data['novinka']?->getDatum() ?>" required>
+                <input type="date" class="form-control" name="datum" placeholder="" value="" required>
                 <label for="floatingPassword">Dátum konania</label>
             </div>
             <div class="form-floating">
-                <input type="file" class="form-control" name="obrazok" placeholder="" value="<?= @$data['novinka']?->getObrazok() ?>" required>
+                <input type="file" class="form-control" name="obrazok" placeholder="" value="" required>
                 <label for="floatingPassword">Obrázok</label>
             </div>
             <div class="form-group">
                 <label for="text">Text</label>
-                <textarea class="form-control" name="text" rows="5"><?= @$data['novinka']?->getText() ?></textarea>
+                <textarea class="form-control" name="text" rows="5"></textarea>
             </div>
             <button class="btn btn-primary w-100 py-2" type="submit">Odoslať</button>
         </div>
