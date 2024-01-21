@@ -15,5 +15,5 @@ CREATE TABLE `permissions`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
-# INSERT INTO `permissions` (`id`, `type`, `description`)
-# VALUES (1, 1, 'Administratíávne oprávnenia'), (2, 2, 'Moderátorské oprávnenia'), (3, 3, 'Bežné oprívnenia');
+INSERT INTO `permissions` (`id`, `type`, `description`)
+VALUES (1, 1, 'Administratíávne oprávnenia'), (2, 2, 'Moderátorské oprávnenia'), (3, 3, 'Bežné oprívnenia');

@@ -5,6 +5,7 @@ use App\Models\User;
 $layout = 'zaklad';
 ?>
 
+<script type="module" src="public/js/upozornenieScript.js" defer></script>
 <h1 class="hlavnyNadpis">Novinky</h1>
 <hr>
 <?php foreach ($data['novinky'] as $post): ?>
@@ -20,9 +21,9 @@ $layout = 'zaklad';
                 <h6 class="card-text"><?= User::getOne($komentar->getUser())->getUsername() ?></h6>
                 <p class="card-text"><?= $komentar->getText() ?></p>
                 <?php if ($this->app->getAuth()->isLogged()) : ?>
-                    <?php if ($komentar->getUser() == $this->app->getAuth()->getLoggedUserId()) : ?>
+                    <?php if ($komentar->getUser() == $this->app->getAuth()->getLoggedUserId() || $auth->hasHighPermissions()) : ?>
                         <a href="<?=$link->url('komentar.upravit', ['idKoment' => $komentar->getId(), 'idPost' => $post->getId()]) ?>">Upraviť</a>
-                        <a href="<?=$link->url('komentar.zmazat', ['id' => $komentar->getId()]) ?>">Zmazať</a>
+                        <a id="zmazatBut" href="<?=$link->url('komentar.zmazat', ['id' => $komentar->getId()]) ?>">Zmazať</a>
                     <?php endif; ?>
                 <?php endif; ?>
             <?php endif; ?>
@@ -35,9 +36,9 @@ $layout = 'zaklad';
     <?php if ($auth->isLogged()): ?>
         <a class="btn btn-primary mb-2" href="<?=$link->url('komentar.index', ['id' => $post->getId()])?>">Pridať komentár</a>
     <?php endif; ?>
-    <?php if($auth->isLogged() && $auth->getLoggedUserId() == $post->getUser()): ?>
+    <?php if($auth->isLogged() && ($auth->getLoggedUserId() == $post->getUser() || $auth->hasHighPermissions())): ?>
         <a class="btn btn-primary mb-2" href="<?=$link->url('novinky.upravit', ['id' => $post->getId()])?>">Upraviť</a>
-        <a class="btn btn-danger mb-2" href="<?=$link->url('novinky.zmazat', ['id' => $post->getId()])?>">Zmazať</a>
+        <a class="btn btn-danger mb-2" id="zmazatBut" href="<?=$link->url('novinky.zmazat', ['id' => $post->getId()])?>">Zmazať</a>
     <?php endif; ?>
 </div>
 <?php endforeach; ?>

@@ -19,3 +19,6 @@ CREATE TABLE `users`
     FOREIGN KEY (`permission`) references permissions(`id`) ON DELETE CASCADE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
+
+INSERT INTO `users` (id, username, password, birthdate, obrazok, permission)
+VALUES (1, 'admin', '$2y$10$OmbuvCUN21PlAUR25jXlAugiT6JZzFwE4ClQ6nVU5rt9IiCWWjGAO', 1999-01-01, '26029600639913-default_avatar.jpg', 1);

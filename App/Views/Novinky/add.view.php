@@ -9,7 +9,7 @@ $layout = 'zaklad';
     <?php endforeach; ?>
 <?php endif; ?>
 
-<script type="module" src="public/js/prispevokModule.js" defer></script>
+<script type="module" src="public/js/prispevokScript.js" defer></script>
 <form id="postForm" method="post" action="<?= $link->url('novinky.ulozit') ?>" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?= @$data['novinka']?->getId() ?>">
 <h1 class="hlavnyNadpis">Príspevok</h1>

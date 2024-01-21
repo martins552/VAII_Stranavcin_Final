@@ -30,7 +30,7 @@ class RegistraciaController extends AControllerBase
         $pouzivatel->setPassword(password_hash($this->request()->getValue('password'), PASSWORD_DEFAULT));
         $pouzivatel->setBirthdate($this->request()->getValue('birthdate'));
         $pouzivatel->setObrazok($this->request()->getFiles()['picture']['name']);
-        $pouzivatel->setPermission(1);
+        $pouzivatel->setPermission(3);
 
         $errors = $this->errors();
         if (count($errors) > 0) {

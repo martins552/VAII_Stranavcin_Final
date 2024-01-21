@@ -98,4 +98,15 @@ class DummyAuthenticator implements IAuthenticator
     {
         return $_SESSION['user'];
     }
+
+    public function hasHighPermissions() : bool
+    {
+        $user = User::getOne($this->getLoggedUserId());
+        if ($user->getPermission() < 3)
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

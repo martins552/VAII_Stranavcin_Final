@@ -14,6 +14,11 @@ $layout = "zaklad";
 <div class="container">
     <main class="form-signin w-50 m-auto">
             <div class="d-grid gap-2">
+
+<!--                <span id="emailFormat" class="alert alert-danger m-auto" hidden>Nesprávny formát emailu!</span>-->
+<!--                <span id="heslaRovne" class="alert alert-danger m-auto" hidden>Heslá sa nerovnajú</span>-->
+<!--                <span id="vyplnene" class="alert alert-danger m-auto" hidden>Všetky údaje musia byť vyplnené!</span>-->
+
                 <form id="reg" class="form-signin" method="post" action="<?= $link->url('registracia.vytvorUcet')?>" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?= @$data['pouzivatel']?->getId() ?>">
                     <div class="form-floating">

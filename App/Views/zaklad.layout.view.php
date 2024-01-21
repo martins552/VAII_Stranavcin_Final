@@ -48,7 +48,7 @@
                     </ul>
                 </li>
             </ul>
-            <?php if ($auth->isLogged()): ?>
+            <?php if ($auth->isLogged() && $auth->hasHighPermissions()): ?>
             <ul class="navbar-nav nav-pills justify-content-end text-center">
                 <li class="nav-item">
                     <a class="nav-link active" href="<?=$link->url('novinky.add')?>">Pridať novinku</a>
