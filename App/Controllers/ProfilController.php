@@ -25,9 +25,6 @@ class ProfilController extends AControllerBase
         $id = (int)$this->request()->getValue('id');
         $profil = User::getOne($id);
 
-        if ($auth->hasHighPermissions()) {
-            throw new HTTPException(403, "unauthorized");
-        }
         if (is_null($profil))
         {
             throw new HTTPException(404);

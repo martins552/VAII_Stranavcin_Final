@@ -27,12 +27,12 @@ $layout = "zaklad";
                     </div>
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="username" placeholder="Používateľské meno" name="username" value="<?= @$data['pouzivatel']?->getUsername() ?>">
+                        <input type="text" class="form-control" id="username" placeholder="Používateľské meno" name="username" value="">
                         <label for="floatingInput">Používateľské meno</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="password" placeholder="Heslo" name="password" value="<?= @$data['pouzivatel']?->getPassword() ?>">
+                        <input type="password" class="form-control" id="password" placeholder="Heslo" name="password" value="">
                         <label for="floatingPassword">Heslo</label>
                     </div>
 
@@ -41,11 +41,11 @@ $layout = "zaklad";
                         <label for="floatingPassword">Zopakovať heslo</label>
                     </div>
                     <div class="form-floating">
-                        <input type="date" class="form-control" id="birthdate" placeholder="Dátum narodenia" name="birthdate" value="<?= @$data['pouzivatel']?->getBirthdate() ?>">
+                        <input type="date" class="form-control" id="birthdate" placeholder="Dátum narodenia" name="birthdate" value="">
                         <label for="floatingPassword">Dátum narodenia</label>
                     </div>
                     <div class="form-floating">
-                        <input type="file" class="form-control" id="picture" placeholder="Dátum narodenia" name="picture" value="<?= @$data['pouzivatel']?->getObrazok() ?>">
+                        <input type="file" class="form-control" id="picture" placeholder="Dátum narodenia" name="picture" value="">
                         <label for="floatingPassword">Profilová fotka</label>
                     </div>
                     <div>

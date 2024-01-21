@@ -10,7 +10,7 @@ $layout = 'zaklad';
     <?php endforeach; ?>
 <?php endif; ?>
 
-<script type="module" src="public/js/upozornenieScript.js" defer></script>
+<script type="module" src="public/js/passwordAPIScript.js" defer></script>
 <h1 class="hlavnyNadpis">Profil</h1>
 <hr>
     <div class="card mx-auto karta">
@@ -21,7 +21,7 @@ $layout = 'zaklad';
             <h1 class="card-text">Dátum narodenia: <?= $data['profil']->getBirthdate()?></h1>
         </div>
         <?php if (!$auth->hasHighPermissions()) : ?>
-            <a class="btn btn-primary mb-2" href="<?=$link->url('profil.upravit', ['id' => $data['profil']->getId()])?>">Upraviť</a>
+            <a class="btn btn-primary mb-2" id="upravitBut" href="<?=$link->url('profil.upravit', ['id' => $data['profil']->getId()])?>">Upraviť</a>
             <a id="zmazatBut" class="btn btn-danger mb-2" href="<?=$link->url('profil.zmazat', ['id' => $data['profil']->getId()])?>">Zmazať</a>
         <?php endif; ?>
     </div>
