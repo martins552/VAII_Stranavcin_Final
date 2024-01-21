@@ -55,6 +55,14 @@ class RegistraciaController extends AControllerBase
     public function errors() : array
     {
         $errors = [];
+        if ($this->request()->getValue('password') != $this->request()->getValue('passwordRepeat'))
+        {
+            $errors[] = "Zadajte rovnaké emaily!";
+        }
+        if (!filter_var($this->request()->getValue('email'),FILTER_VALIDATE_EMAIL))
+        {
+            $errors[] = "Zadajte spávny formát e-mailu!";
+        }
         if ($this->request()->getFiles()['picture']['name'] == "")
         {
             $errors[] = "Vložte obrázok!";

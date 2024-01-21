@@ -9,7 +9,8 @@ $layout = 'zaklad';
     <?php endforeach; ?>
 <?php endif; ?>
 
-<form method="post" action="<?= $link->url('novinky.ulozit') ?>" enctype="multipart/form-data">
+<script type="module" src="public/js/prispevokModule.js" defer></script>
+<form method="post" id="postForm" action="<?= $link->url('novinky.ulozit') ?>" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?= @$data['novinka']?->getId() ?>">
     <h1 class="hlavnyNadpis">Upraviť príspevok</h1>
     <hr>
@@ -17,26 +18,26 @@ $layout = 'zaklad';
         <form>
             <div class="d-grid gap-2">
                 <div class="form-floating">
-                    <input type="text" class="form-control" name="nazov" placeholder="" value="<?= @$data['novinka']?->getNazov() ?>" required>
+                    <input type="text" class="form-control" name="nazov" placeholder="" value="<?= @$data['novinka']?->getNazov() ?>">
                     <label for="floatingInput">Názov príspevku</label>
                 </div>
                 <div class="form-floating">
-                    <input type="text" class="form-control" name="miesto" placeholder="" value="<?= @$data['novinka']?->getMiesto() ?>" required>
+                    <input type="text" class="form-control" name="miesto" placeholder="" value="<?= @$data['novinka']?->getMiesto() ?>">
                     <label for="floatingPassword">Miesto konania</label>
                 </div>
                 <div class="form-floating">
-                    <input type="date" class="form-control" name="datum" placeholder="" value="<?= @$data['novinka']?->getDatum() ?>" required>
+                    <input type="date" class="form-control" name="datum" placeholder="" value="<?= @$data['novinka']?->getDatum() ?>">
                     <label for="floatingPassword">Dátum konania</label>
                 </div>
                 <div class="form-floating">
-                <input type="file" class="form-control" name="obrazok" placeholder="" value="<?= substr($data['novinka']->getObrazok(), strpos($data['novinka']->getObrazok(), '-') + 1)  ?>" required>
+                <input type="file" class="form-control" name="obrazok" placeholder="">
                     <label for="floatingPassword">Obrázok</label>
                 </div>
                 <div class="form-group">
                     <label for="text">Text</label>
-                    <textarea class="form-control" name="text" rows="5" required><?= @$data['novinka']?->getText() ?></textarea>
+                    <textarea class="form-control" name="text" rows="5" id="textArea" required><?= @$data['novinka']?->getText() ?></textarea>
                 </div>
-                <button class="btn btn-primary w-100 py-2" type="submit">Odoslať</button>
+                <button class="btn btn-primary w-100 py-2" id="but" disabled type="submit">Odoslať</button>
             </div>
         </form>
     </main>

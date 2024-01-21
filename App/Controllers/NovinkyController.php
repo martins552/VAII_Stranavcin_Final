@@ -32,6 +32,9 @@ class NovinkyController extends AControllerBase
         $id = (int) $this->request()->getValue('id');
         $novinka = Post::getOne($id);
 
+        if ($novinka->getUser() != $this->app->getAuth()->getLoggedUserId()) {
+            throw new HTTPException(403, "unauthorized");
+        }
         if (is_null($novinka)) {
             throw new HTTPException(404);
         } else {
@@ -49,6 +52,9 @@ class NovinkyController extends AControllerBase
         if (is_null($novinka))
         {
             throw new HTTPException(404);
+        }
+        if ($novinka->getUser() != $this->app->getAuth()->getLoggedUserId()) {
+            throw new HTTPException(403, "unauthorized");
         }
         return $this->html([
             'novinka' => $novinka
