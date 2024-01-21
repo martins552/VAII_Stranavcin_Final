@@ -55,9 +55,15 @@ class RegistraciaController extends AControllerBase
     public function errors() : array
     {
         $errors = [];
+        if (!is_null(User::getAll('username = ?', [$this->request()->getValue('username')]))) {
+            $errors[] = "Zadané meno už existuje!";
+        }
+        if (!is_null(User::getAll('email = ?', [$this->request()->getValue('email')]))) {
+            $errors[] = "Zadaný email už existuje!";
+        }
         if ($this->request()->getValue('password') != $this->request()->getValue('passwordRepeat'))
         {
-            $errors[] = "Zadajte rovnaké emaily!";
+            $errors[] = "Zadajte rovnaké heslá!";
         }
         if (!filter_var($this->request()->getValue('email'),FILTER_VALIDATE_EMAIL))
         {
